@@ -18,7 +18,13 @@ public class Comment {
     @Column(name = "comment_id")
     private int id;
     private String description;
+    private int commentLikes;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

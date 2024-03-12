@@ -3,7 +3,6 @@ package com.example.social.media.DTO;
 import com.example.social.media.Model.User;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.function.Function;
 
 @Service

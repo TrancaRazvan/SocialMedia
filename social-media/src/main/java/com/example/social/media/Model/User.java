@@ -16,6 +16,7 @@ import java.util.List;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +25,6 @@ public class User implements UserDetails {
     private int age;
     private String firstName;
     private String lastName;
-    private String username;
     private String email;
     private String password;
     private Boolean locked;
@@ -39,10 +39,18 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.name());
-        return Collections.singletonList(authority);
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+
+    public String getUsername() {
+        return email;
     }
 
     @Override
