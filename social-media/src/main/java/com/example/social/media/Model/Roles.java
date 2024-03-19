@@ -1,6 +1,6 @@
 package com.example.social.media.Model;
 
-public enum UserRole {
+public enum Roles {
     USER,
     ADMIN
 }

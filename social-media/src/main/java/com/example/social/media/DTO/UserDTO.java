@@ -1,8 +1,8 @@
 package com.example.social.media.DTO;
 
 import com.example.social.media.Model.Post;
-import com.example.social.media.Model.UserGender;
-import com.example.social.media.Model.UserRole;
+import com.example.social.media.Model.Genders;
+import com.example.social.media.Model.Roles;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ public record UserDTO(
         String firstName,
         String lastName,
         Integer age,
-        UserGender gender,
-        UserRole role,
+        Genders gender,
+        Roles role,
         List<Post> posts
         ) {
 }

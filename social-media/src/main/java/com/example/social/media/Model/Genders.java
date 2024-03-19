@@ -1,6 +1,6 @@
 package com.example.social.media.Model;
 
-public enum UserGender {
+public enum Genders {
     MALE,
     FEMALE
 }
