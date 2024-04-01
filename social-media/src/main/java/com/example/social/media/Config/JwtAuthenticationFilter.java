@@ -1,7 +1,6 @@
 package com.example.social.media.Config;
 
 import com.example.social.media.Service.UserService;
-import io.jsonwebtoken.Jwts;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

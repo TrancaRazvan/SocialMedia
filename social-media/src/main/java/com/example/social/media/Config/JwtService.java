@@ -16,20 +16,24 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
-    private static final String SECRET_KEY = "617FB62777969D172436BE6FDFE61";
+
+    private static final String SECRET_KEY = "MySecretKeyForJWTTokenGenerationAndValidation";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
-        return Jwts
+        String token = Jwts
                 .builder()
                 .claims().empty().add(extraClaims).and()
                 .subject(userDetails.getUsername())
-                .issuedAt(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
                 .signWith(getSignInKey(), Jwts.SIG.HS256)
                 .compact();
+        System.out.println("Generated JWT token: " + token);
+        return token;
     }
     public String generateToken(UserDetails userDetails){
         return generateToken(new HashMap<>(), userDetails);
