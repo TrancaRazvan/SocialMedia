@@ -1,6 +1,8 @@
 package com.example.social.media.Auth;
 
 import com.example.social.media.Config.JwtService;
+import com.example.social.media.Controller.AuthenticationRequest;
+import com.example.social.media.Controller.AuthenticationResponse;
 import com.example.social.media.Model.Roles;
 import com.example.social.media.Model.User;
 import com.example.social.media.Repository.UserRepository;
